@@ -1,4 +1,3 @@
-from rest_framework.views import APIView, status, Response
 from .models import Album
 from .serializers import AlbumSerializer
 from rest_framework.generics import ListCreateAPIView
