@@ -1,74 +1,32 @@
-# M5 - BandKamp Generic View
+# API de Cadastro de Usuários, Álbuns e Músicas
 
-## Instalação dos pacotes de teste
+Esta é uma API desenvolvida com Django que permite o cadastro de usuários, álbuns e músicas. A aplicação utiliza as classes `APIView` e `Serializer` do Django Rest Framework (DRF) e o banco de dados SQLite3. O objetivo deste projeto é refatorar a aplicação, aplicando os conceitos de Generic View, Model Serializer e alterando o banco de dados para o PostgreSQL.
+## Configuração e Instalação
 
-- Verifique se os pacotes `pytest` e/ou `pytest-testdox` estão instalados globalmente em seu sistema:
-```shell
-pip list
-```
-- Caso seja listado o `pytest` e/ou `pytest-testdox` e/ou `pytest-django` em seu ambiente global, utilize os seguintes comando para desinstalá-los globalmente:
-```shell
-pip uninstall pytest
-```
+1. Clone o repositório do GitHub: [link do repositório](https://github.com/Natangaf/API-de-Cadastro-de-Usuarios-albuns-e-Musicas).
+2. Acesse o diretório do projeto: `cd nome-do-repositorio`.
+3. Crie e ative um ambiente virtual (recomendado): 
+   - Utilizando `venv`:
+     ```bash
+     python -m venv env
+     source env/bin/activate
+     ```
+   - Utilizando `conda`:
+     ```bash
+     conda create --name env
+     conda activate env
+     ```
+4. Instale as dependências do projeto: `pip install -r requirements.txt`.
+5. Configure as variáveis de ambiente:
+   - Renomeie o arquivo `.env.example` para `.env`.
+   - Edite o arquivo `.env` e configure as variáveis de acordo com o seu ambiente.
+6. Execute as migrações do banco de dados: `python manage.py migrate`.
+7. Inicie o servidor de desenvolvimento: `python manage.py runserver`.
+8. Acesse a API em `http://localhost:8000/`.
 
-```shell
-pip uninstall pytest-testdox
-```
+## Testes
 
-```shell
-pip uninstall pytest-django
-```
+Para executar os testes automatizados, execute o seguinte comando:
 
-A partir disso, prossiga com os passos:
-
-1. Crie seu ambiente virtual:
 ```bash
-python -m venv venv
-```
-
-2. Ative seu venv:
-```bash
-# Linux:
-source venv/bin/activate
-
-# Windows (Powershell):
-.\venv\Scripts\activate
-
-# Windows (Git Bash):
-source venv/Scripts/activate
-```
-
-3. Instale o pacote `pytest-testdox`:
-```shell
-pip install pytest-testdox pytest-django
-```
-
-
-4. Agora é só rodar os testes no diretório principal do projeto:
-```shell
-pytest --testdox -vvs
-```
-
-5. Caso queira um log mais resumido, basta executar com os testes sem as flags **verbose**:
-```shell
-pytest --testdox
-```
-
-## Rodando os testes por partes
-
-Caso você tenha interesse em rodar apenas um diretório de testes específico, pode utilizar o comando:
-
-- Rodando testes de users:
-```python
-pytest --testdox -vvs tests/users/
-```
-
-- Rodando testes de albums:
-```python
-pytest --testdox -vvs tests/albums/
-```
-
-- Rodando testes de songs:
-```python
-pytest --testdox -vvs tests/songs/
-```
+python manage.py test
